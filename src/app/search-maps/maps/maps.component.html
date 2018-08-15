@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-xs-10 container map-container">
+    <agm-map (mapClick)="onMapClicked($event)" [latitude]="mapLat"
+      [longitude]="mapLng" [zoom]="zoom">
+      <agm-marker name="placeMarker" [latitude]="(smState$|async).place.lat" [longitude]="(smState$|async).place.lng"
+        (markerClick)="onMarkerPClicked()" *ngIf="(authState$|async).authenticated"><!---->
+        <agm-info-window [isOpen]="openInfoP" [latitude]="(smState$|async).place.lat"
+          [longitude]="(smState$|async).place.lng">
+          <ul class="list-unstyled">
+            <li><h6>{{(smState$|async).place.name}}</h6></li>
+            <li><span><img [src]="(smState$|async).place.icon" style="max-height:12px;max-width:12px;" class="img-responsive"/>
+            </span></li>
+            <li><p>{{(smState$|async).place.vicinity}}</p></li>
+          </ul>
+        </agm-info-window>
+      </agm-marker>
+      <agm-marker *ngIf="mapSPMarker()" name="selectedPlace" [latitude]="(smState$|async).selectedPlace.lat"
+        [longitude]="(smState$|async).selectedPlace.lng" (markerClick)="onMarkerSPClicked()">
+          <!---->
+        <agm-info-window [isOpen]="openInfoSP" [latitude]="(smState$|async).selectedPlace.lat"
+          [longitude]="(smState$|async).selectedPlace.lng"><!-- *ngIf="(smState$|async).selectedPlace">-->
+          <ul class="list-unstyled">
+            <li><h6>{{(smState$|async).selectedPlace.name}}</h6></li>
+            <li><span><img [src]="(smState$|async).selectedPlace.icon" style="max-height:12px;max-width:12px;"
+              class="img-responsive"/></span></li>
+            <li><p>{{(smState$|async).selectedPlace.vicinity}}</p></li>
+          </ul>
+          <span (click)="storeSelectedPlace()" *ngIf="!(smState$|async).selectedPlaceAdded">
+            <img src="../../../assets/images/add-icon.png" style="max-height:15px;max-width:15px;cursor:pointer;"
+              class="img-responsive plusImg"/></span>
+          <span *ngIf="(smState$|async).selectedPlaceAdded">
+            <img src="../../../assets/images/done-storing.jpg" style="max-height:25px;max-width:25px;"
+              class="img-responsive"/></span>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+</div>
+<br /><br />

@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit)="onSignin(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="email">Mail</label>
+        <input type="email" class="form-control" ngModel id="email" name="email" placeholder="Enter email"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" ngModel id="password" name="password" placeholder="Password"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
+<br /><br><br><br>
+<div class="row">
+  <div class="col-xs-6 col-sm-4 col-md-4 col-xs-offset-3 col-sm-offset-4 col-md-offset-4 linksDiv">
+    <a class="fpLink" routerLink="/forgot-password" activeRouterLink="active">Forgot your password?</a>
+  </div>
+</div>

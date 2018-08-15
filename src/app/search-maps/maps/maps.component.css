@@ -1,0 +1,13 @@
+agm-map {
+  width:129%;
+  height: 430px;
+}
+agm-info-window{
+  /*height:100px;
+  width:150px;*/
+  min-width:fit-content;
+  min-height:fit-content;
+}
+.plusImg:hover{
+    background:rgba(0, 230, 230,0.8);
+}

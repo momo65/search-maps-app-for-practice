@@ -1,0 +1,5 @@
+
+  <div class="col-xs-11 form-group">
+    <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
+      class="form-control" [disabled]="!(authState$|async).authenticated"/><!--[options]='options'-->
+</div>
