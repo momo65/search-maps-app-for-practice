@@ -1,3 +1,11 @@
 I used google maps API and google places API to develop this project.
 You can access these 2 APIs through the google API console. 
 I used also @ngrx's Redux directly from the start without developing services.
+
+This the url for a chrome extension that you might need to install: Allow-Control-Allow-Origin
+https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi  .
+
+You need to disable the Allow-Control-Allow-Origin to do the authentication or sign up and to enable it once you are going to add
+a place through the '+' button in the map's popup.
+
+The infinite scroll for the visited places works once and then doesn't anymore. 
